@@ -1,13 +1,13 @@
-function TabButton(props) {
+function TabButton({children, onSelect, isSelected}) {
 
     function handleClick() {
-        console.log('Tab button clicked:', props.children);
+        console.log('Tab button clicked:', children);
     }
 
     return (
         <li>
-            <button onClick={props.onSelect}>
-                {props.children}
+            <button className={isSelected? 'active': undefined} onClick={onSelect}>
+                {children}
             </button>
         </li>
 
