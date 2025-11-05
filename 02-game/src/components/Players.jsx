@@ -1,12 +1,16 @@
 import { useState } from "react";
 
-function Players({ initialName, symbol , isActive}) {
+function Players({ initialName, symbol , isActive, onNameChange }) {
   const [isEditing, setIsEditing] = useState(false);
   const [playerName, setPlayerName] = useState(initialName);
 
   function handleEdit() {
     // If you wants to toggle the editing state, you should use the arrow function syntax: () => !editing
     setIsEditing((editing) => !editing);
+
+    if (isEditing){
+      onNameChange(symbol, playerName);
+    }
   }
   
 
